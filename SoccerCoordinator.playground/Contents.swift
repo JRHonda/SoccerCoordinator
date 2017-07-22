@@ -26,20 +26,7 @@ let players: [String : (String,Int,String,String)] = [
     
 ]
 
-var collectionOfPlayers: [(String, Int, String, String)] = []
-
-// This function puts the players into an array.
-func createCollectionOfPlayers() -> [(String, Int, String, String)]  {
-    
-    for i in 0...(players.count - 1) {
-        let playerTag = "player" + String(i)
-        collectionOfPlayers.append(players[playerTag]!)
-    }
-    return collectionOfPlayers
-}
-createCollectionOfPlayers()
-
-// MARK: - Assign Players to teams
+// MARK: - Step Two - Assign Players to teams
 
 var teamSharks:  [(String, Int, String, String)] = []
 var teamDragons: [(String, Int, String, String)] = []
@@ -66,6 +53,7 @@ func fillArrayWithAPlayersCorrespondingExperience() {
     }
 }
 fillArrayWithAPlayersCorrespondingExperience()
+
 // This function mixes up the playersWithExperience and playersWithoutExperience arrays in order to allow the program to find a set of players to allow the teams to conform to the 1.5 average height rule.  It is only called if the the first and higher iterations fail to conform.
 func shuffleArray() {
     playersWithExperience = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: playersWithExperience) as! [(String, Int, String, String)]
@@ -171,7 +159,7 @@ func ensureAverageHeightsOfTeamsAre(withinRange range: Float) {
 }
 ensureAverageHeightsOfTeamsAre(withinRange: 1.5)
 
-// MARK: - Print letters to guardians
+// MARK: - Step 3 - Print letters to guardians
 
 var letterToSharksGuardians: [String] = []
 var letterToDragonsGuardians: [String] = []
